@@ -45,11 +45,10 @@ public class ObstacleController : MonoBehaviour
 
         Debug.Log(transform == tf);
 
+        rb.mass 
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+   
         
-    }
 }
