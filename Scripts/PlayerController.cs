@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,13 +16,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!Mouse.current.leftButton.isPressed)
         {
-            return;
+
+            //calculate the direction from the player to the mouse
+            Debug.Log("The left button is clicked");
+            Debug.Log("The current mouse position on the screen is:" + Mouse.current.position.value);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
+            Debug.Log("The world position of the mouse is: " + mousePos);
+            Vector2 dir = mousePos - gameObject.transform.position;
+            Debug.Log("The direction to the mouse is: " + dir);
+            transform.up = dir;
+            rb.AddForce(dir);
         }
-        Debug.Log("The left button is clicked");
-        Debug.Log("The current mouse position on the screen is:" + Mouse.current.position.value);
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
-        Debug.Log("The world position of the mouse is: " + mousePos);
-        Vector2 dir = mousePos - gameObject.transform.position;
-        Debug.Log("The direction to the mouse is: " + dir);
     }
 }
