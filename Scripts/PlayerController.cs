@@ -3,7 +3,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    [SerializeField]
+
+    private float force = 5;
+    public Rigidbody2D rb;  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,10 +25,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log("The current mouse position on the screen is:" + Mouse.current.position.value);
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
             Debug.Log("The world position of the mouse is: " + mousePos);
-            Vector2 dir = mousePos - gameObject.transform.position;
-            Debug.Log("The direction to the mouse is: " + dir);
+            Vector2 dir = (mousePos - gameObject.transform.position).normalized;
+            Debug.Log("The direction to the mouse is: " + dir.magnitude);
             transform.up = dir;
-            rb.AddForce(dir);
+            rb.AddForce(dir * 10);
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }
