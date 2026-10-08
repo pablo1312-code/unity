@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed = 4;
 
     private float elapsedTime = 0f;
-
+    [SerializeField]
     private UIDocument uiDoc;
+
+    private Label scoreLabel;
     private void Start()
     {
-        
+        uiDoc.rootVisualElement.Q<Label>();
     }
 
 
