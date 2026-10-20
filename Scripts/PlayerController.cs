@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private UIDocument uiDoc;
 
     private Label scoreLabel;
+    [SerializeField]
+    private ParticleSystem explosionEffect;
     private void Start()
     {
         scoreLabel = uiDoc.rootVisualElement.Q<Label>();
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //transform.position;
         Destroy(gameObject);
     }
 }
