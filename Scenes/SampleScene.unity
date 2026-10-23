@@ -1678,6 +1678,10 @@ PrefabInstance:
       propertyPath: minForce
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: -1901823179810453676, guid: 8156c1bd7e3e9194f9cf35c03dd343cf, type: 3}
+      propertyPath: impactEffect
+      value: 
+      objectReference: {fileID: 4202976410551653702, guid: ab0709d89db9eaa40af98d5bd529566f, type: 3}
     - target: {fileID: 3156967783324788643, guid: 8156c1bd7e3e9194f9cf35c03dd343cf, type: 3}
       propertyPath: m_GravityScale
       value: 0
