@@ -20,8 +20,12 @@ public class PlayerController : MonoBehaviour
     private Label scoreLabel;
     [SerializeField]
     private ParticleSystem explosionEffect;
+    [SerializeField]
+
+    private AudioSource audioSource;
     private void Start()
     {
+       
         scoreLabel = uiDoc.rootVisualElement.Q<Label>();
     }
 
@@ -62,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        audioSource.Play();
         //transform.position;
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
