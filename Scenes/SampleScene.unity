@@ -172,6 +172,7 @@ MonoBehaviour:
   maxSpeed: 4
   uiDoc: {fileID: 493181401}
   explosionEffect: {fileID: 723893089025214146, guid: 992549f28e4e8414fabde6ec0dcb7e18, type: 3}
+  audioSource: {fileID: 519420033}
 --- !u!50 &136804142 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5628018141983903117, guid: ef67ba864d1ecc042b5f4cf48455c0a6, type: 3}
