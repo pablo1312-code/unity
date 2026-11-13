@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -31,7 +32,16 @@ public class PlayerController : MonoBehaviour
        
         scoreLabel = uiDoc.rootVisualElement.Q<Label>();
         restartButton = uiDoc.rootVisualElement.Q<Button>("RestartButton");
+        restartButton.clicked += LoadScene;
 
+        restartButton.style.display = DisplayStyle.None;
+    }
+
+    private void LoadScene()
+    {
+        Debug.Log("clicked");
+        SceneManager sm;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 
     void UpdateScore()
@@ -71,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        restartButton.style.display = DisplayStyle.Flex;
         audioSource.Play();
         //transform.position;
         Instantiate(explosionEffect, transform.position, transform.rotation);
